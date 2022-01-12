@@ -17,4 +17,5 @@ RUN apk add --no-cache build-base wget upx && \
         upx /opt/runit/*
 
 FROM scratch
+LABEL org.opencontainers.image.source https://github.com/resinstack/runit
 COPY --from=BUILD /opt/runit/* /usr/bin/
