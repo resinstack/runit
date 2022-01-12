@@ -9,7 +9,6 @@ RUN apk add --no-cache build-base wget upx && \
         sed -e 's,sbin/runit,usr/bin/runit,g' -i runit.h && \
         echo "gcc -O2 -static" >conf-cc && \
         echo "gcc -s -static" >conf-ld && \
-        sed -i -e 's:^char \*varservice ="/service/";$:char \*varservice ="/var/service/";:' sv.c && \
         sed -i -e 's:short x\[4\];$:gid_t x[4];:' chkshsgr.c && \
         make && \
         mkdir -p /opt/runit && \
